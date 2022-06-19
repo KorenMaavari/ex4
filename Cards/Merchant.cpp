@@ -13,38 +13,49 @@ Merchant::Merchant ()
 
 void Merchant::applyEncounter (Player& player) const
 {
-    printMerchantInitialMessageForInteractiveEncounter(cout,
-    player.getName(), player.getCoins());
-    int input;
-    cin >> input;
-    while (cin.fail() || input < 0 || input > 2)
-    {
-        printInvalidInput();
-        cin >> input;
+    int input,price;
+    bool choseAction = false;
+    printMerchantInitialMessageForInteractiveEncounter(cout,player.getName(), player.getCoins());
+    string str;
+    cin >> str;
+    while(!choseAction){
+        if(str.length() == 1 && isdigit(str[0]) &&  stoi(str)>= LEAVE && stoi(str) <= FORCE_BOOST){
+            input = stoi(str);
+            if (input == LEAVE)
+            {
+                choseAction = true;
+                price = 0;
+            }
+            else if (input == HEALTH_POTION)
+            {
+                if(player.getCoins() >= HEALTH_POTION_PRICE){
+                    player.pay(HEALTH_POTION_PRICE);
+                    player.heal(1);
+                    price = HEALTH_POTION_PRICE;
+                    choseAction = true;
+                }
+                else{
+                    printMerchantInsufficientCoins(cout);
+                    cin >> str;
+                }
+            }
+            else{ // input == FORCE_BOOST
+                if(player.getCoins() >= FORCE_BOOST_PRICE){
+                    player.pay(FORCE_BOOST_PRICE);
+                    player.buff(1);
+                    price = FORCE_BOOST_PRICE;
+                    choseAction = true;
+                }
+                else{
+                    printMerchantInsufficientCoins(cout);
+                    cin >> str;
+                }
+            }
+        }
+        else{
+            printInvalidInput();
+            cin >> str;
+        }
     }
-    int price;
-    if (input == HEALTH_POTION)
-    {
-        price = HEALTH_POTION_PRICE;
-    }
-    else if (input == FORCE_BOOST)
-    {
-        price = FORCE_BOOST_PRICE;
-    }
-    if (input == HEALTH_POTION && player.getCoins() >= HEALTH_POTION_PRICE)
-    {
-        player.pay(HEALTH_POTION_PRICE);
-        player.heal(1);
-        printMerchantSummary(cout, player.getName(), input, price);
-    }
-    else if (input == FORCE_BOOST && player.getCoins() >= FORCE_BOOST_PRICE)
-    {
-        player.pay(FORCE_BOOST_PRICE);
-        player.buff(1);
-        printMerchantSummary(cout, player.getName(), input, price);
-    }
-    else if (player.getCoins() < price)
-    {
-        printMerchantInsufficientCoins(cout);
-    }
+    printMerchantSummary(cout, player.getName(), input, price);  
 }

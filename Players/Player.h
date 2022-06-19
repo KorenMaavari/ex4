@@ -10,8 +10,8 @@ const int DFLT_COINS = 10;
 const int DFLT_MAX_HP  = 100;
 const int DFLT_FORCE  = 5;
 const int MAX_LEVEL = 10;
-const int MAX_PLAYER_NAME_LENGTH = 15;
 const int TWICE  = 2;
+const int MAX_PLAYER_NAME_LENGTH = 15;
 
 const std::string FIGHTER_STR = "Fighter";
 const std::string ROGUE_STR = "Rogue";

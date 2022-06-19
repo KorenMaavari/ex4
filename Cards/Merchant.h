@@ -2,7 +2,7 @@
 #define EX4_MERCHANT_H
 
 #include "Card.h"
-
+const int LEAVE = 0;
 const int HEALTH_POTION = 1;
 const int FORCE_BOOST = 2;
 const int HEALTH_POTION_PRICE = 5;

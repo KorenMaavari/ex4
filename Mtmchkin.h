@@ -87,7 +87,7 @@ public:
 
         int initializeTeamSize() const;
         void createCard(const std::string cardString, int row);
-        void createPlayer(const std::string playerName, const std::string playerClass);
+        bool createPlayer(const std::string playerName, const std::string playerClass);
         void insertPlayers(int teamSize);
         void checkFile(const std::string fileName);
         void updateGame();

@@ -12,21 +12,7 @@ Player::Player (const string name)
     m_maxHP (DFLT_MAX_HP),
     m_HP (DFLT_MAX_HP),
     m_coins (DFLT_COINS)
-{
-    bool isPlayerNameValid = true;
-    for (int i=0 ; i < name.length() ; ++i)
-    {
-        if (isalpha(name[i]) == false || i >= MAX_PLAYER_NAME_LENGTH)
-        {
-            isPlayerNameValid = false;
-            break;
-        }
-    }
-    if (isPlayerNameValid == false)
-    {
-        throw PlayerInvalidName();
-    }
-}
+{}
 
 Player::~Player ()
 {

@@ -23,19 +23,7 @@ class DeckFileInvalidSize : public Exception{
 
 class DeckFileFormatError : public Exception{
     public:
-    DeckFileFormatError(int line) : Exception(std::string("Deck File Error: File format error in line " + line ))
-    {}
-};
-
-class PlayerInvalidName : public Exception{
-    public:
-    PlayerInvalidName() : Exception(std::string("You have entered an invalid name. Please try again."))
-    {}
-};
-
-class PlayerInvalidClass : public Exception{
-    public:
-    PlayerInvalidClass() : Exception(std::string("You have entered an invalid class. Please try again."))
+    DeckFileFormatError(int line) : Exception(std::string("Deck File Error: File format error in line " + std::to_string(line)))
     {}
 };
 
