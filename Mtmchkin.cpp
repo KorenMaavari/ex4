@@ -8,6 +8,7 @@ using std::cout;
 using std::getline;
 using std::unique_ptr;
 using std::stoi;
+using std::move;
 
 
 int Mtmchkin::m_numberOfRounds = 0;
@@ -39,11 +40,9 @@ void Mtmchkin::checkFile(const string fileName){
             ++amountOfCards;
         }
     }catch(const DeckFileFormatError& e){
-        //m_cardsDeque.release();
         throw DeckFileFormatError(amountOfCards+1);
     }
     if(amountOfCards <= MINIMUM_AMOUNT_OF_CARDS){
-        //m_cardsDeque.release();
         throw DeckFileInvalidSize();
     }
 }
@@ -99,13 +98,16 @@ void Mtmchkin::insertPlayers(int teamSize){
 bool Mtmchkin::createPlayer(const std::string playerName, const std::string playerClass)
 {
     if(FIGHTER_STR == playerClass){
-        m_playersInGame.push_back(new Fighter(playerName));
+        unique_ptr<Player> newPlayer (new Fighter(playerName));
+        m_playersInGame.push_back(move(newPlayer));
     }
     else if(ROGUE_STR == playerClass){
-        m_playersInGame.push_back(new Rogue(playerName));;
+        unique_ptr<Player> newPlayer (new Rogue(playerName));
+        m_playersInGame.push_back(move(newPlayer));
     }
     else if(WIZARD_STR == playerClass){
-        m_playersInGame.push_back(new Wizard(playerName));;
+        unique_ptr<Player> newPlayer (new Wizard(playerName));
+        m_playersInGame.push_back(move(newPlayer));
     }
     else{
         return false;
@@ -116,7 +118,8 @@ bool Mtmchkin::createPlayer(const std::string playerName, const std::string play
 
 bool Mtmchkin::checkName(string playerName) const{
     if(playerName.length() <= MAX_PLAYER_NAME_LENGTH && playerName.length()> 0){
-        for(int i=0 ; i<(int)playerName.length() ; ++i){
+        int length = playerName.length();
+        for(int i=0; i< length;++i){
             if(!(isalpha(playerName[0]))){
                 return false;
             }
@@ -129,28 +132,36 @@ bool Mtmchkin::checkName(string playerName) const{
 void Mtmchkin::createCard(const string cardString,int row){
 
     if(cardString == GOBLIN_STR){
-        m_cardsDeque.push_back(new Goblin());
+        unique_ptr<Card> newCard (new Goblin());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == VAMPIRE_STR){
-       m_cardsDeque.push_back(new Vampire());
+        unique_ptr<Card> newCard (new Vampire());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == DRAGON_STR){
-        m_cardsDeque.push_back(new Dragon());
+        unique_ptr<Card> newCard (new Dragon());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == BARFIGHT_STR){
-        m_cardsDeque.push_back(new Barfight());
+        unique_ptr<Card> newCard (new Barfight());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == FAIRY_STR){
-        m_cardsDeque.push_back(new Fairy());
+        unique_ptr<Card> newCard (new Fairy());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == PITFALL_STR){
-        m_cardsDeque.push_back(new Pitfall());
+        unique_ptr<Card> newCard (new Pitfall());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == TREASURE_STR){
-        m_cardsDeque.push_back(new Treasure());
+        unique_ptr<Card> newCard (new Treasure());
+        m_cardsDeque.push_back(move(newCard));
     }
     else if(cardString == MERCHANT_STR){
-        m_cardsDeque.push_back(new Merchant());
+        unique_ptr<Card> newCard (new Merchant());
+        m_cardsDeque.push_back(move(newCard));
     }
     else{
         throw DeckFileFormatError(row);
@@ -161,12 +172,9 @@ int Mtmchkin::getNumberOfRounds() const{
     return m_numberOfRounds;
 }
 
-bool Mtmchkin::isGameOver () const
-{
-    for(int i=0 ; i<m_numberOfPlayers ; ++i)
-    {
-        if(m_isInGame.at(i))
-        {
+bool Mtmchkin::isGameOver() const{
+    for(int i=0; i<m_numberOfPlayers;++i){
+        if(m_isInGame.at(i)){
             return false;
         }
     }
@@ -201,7 +209,7 @@ void Mtmchkin::playRound(){
         if(m_isInGame.at(i)){
             printTurnStartMessage(m_playersInGame[i]->getName());
             m_cardsDeque.front()->applyEncounter(*m_playersInGame[i]);
-            m_cardsDeque.push_back(m_cardsDeque.front());
+            m_cardsDeque.push_back(move(m_cardsDeque.front()));
             m_cardsDeque.pop_front();
         }
     }

@@ -3,11 +3,6 @@
 
 #include "Battle.h"
 
-const int VAMPIRE_FORCE = 10;
-const int VAMPIRE_DAMAGE = 10;
-const int VAMPIRE_COINS = 2;
-const int VAMPIRE_PLAYER_LOST_FORCE = 1;
-
 class Vampire : public Battle
 {
     public:
@@ -20,7 +15,7 @@ class Vampire : public Battle
 
     private:
 
-        int m_damage;
+        // nothing
 };
 
 #endif // EX4_VAMPIRE_H

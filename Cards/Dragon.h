@@ -3,9 +3,6 @@
 
 #include "Battle.h"
 
-const int DRAGON_FORCE = 25;
-const int DRAGON_COINS = 1000;
-
 class Dragon : public Battle
 {
     public:

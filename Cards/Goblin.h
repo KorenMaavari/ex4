@@ -3,10 +3,6 @@
 
 #include "Battle.h"
 
-const int GOBLIN_FORCE = 6;
-const int GOBLIN_DAMAGE = 10;
-const int GOBLIN_COINS = 2;
-
 class Goblin : public Battle
 {
     public:
@@ -19,7 +15,7 @@ class Goblin : public Battle
 
     private:
 
-        int m_damage;
+        // nothing
 };
 
 #endif // EX4_GOBLIN_H

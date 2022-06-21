@@ -13,6 +13,17 @@ const std::string MERCHANT_STR = "Merchant";
 const std::string PITFALL_STR = "Pitfall";
 const std::string TREASURE_STR = "Treasure";
 const std::string VAMPIRE_STR = "Vampire";
+const std::string GANG_STR = "Gang";
+
+const int DRAGON_FORCE = 25;
+const int DRAGON_COINS = 1000;
+const int GOBLIN_FORCE = 6;
+const int GOBLIN_DAMAGE = 10;
+const int GOBLIN_COINS = 2;
+const int VAMPIRE_FORCE = 10;
+const int VAMPIRE_DAMAGE = 10;
+const int VAMPIRE_COINS = 2;
+const int VAMPIRE_PLAYER_LOST_FORCE = 1;
 
 // enum cardNameMapIdxs
 // {
