@@ -17,6 +17,8 @@ add_executable(hw4 tool/main.cpp
         Cards/Dragon.cpp
         Cards/Fairy.h
         Cards/Fairy.cpp
+        Cards/Gang.h
+        Cards/Gang.cpp
         Cards/Goblin.h
         Cards/Goblin.cpp
         Cards/Merchant.h

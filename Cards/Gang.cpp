@@ -26,6 +26,7 @@ void Gang::applyEncounter (Player& player) const
                 player.loseForce(VAMPIRE_PLAYER_LOST_FORCE);
             }
             playerLost = true;
+            printLossBattle(player.getName(), it->getName());
         }
         else // if Player won
         {
@@ -35,5 +36,6 @@ void Gang::applyEncounter (Player& player) const
     if (playerLost == false)
     {
         player.levelUp();
+        printWinBattle(player.getName(), this->m_cardName);
     }
 }

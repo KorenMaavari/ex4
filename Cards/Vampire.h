@@ -9,8 +9,6 @@ class Vampire : public Battle
 
         Vampire ();
 
-        void printInfo (std::ostream& os) const override;
-
         void applyEncounter(Player& player) const override;
 
     private:
