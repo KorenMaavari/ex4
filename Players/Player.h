@@ -17,20 +17,6 @@ const std::string FIGHTER_STR = "Fighter";
 const std::string ROGUE_STR = "Rogue";
 const std::string WIZARD_STR = "Wizard";
 
-// enum playerNameMapIdxs
-// {
-//    FighterIDX,
-//    RogueIDX,
-//    WizardIDX
-// };
-
-// std::map <playerNameMapIdxs, std::string> playerNameMap =
-// {
-//    {FighterIDX, "Fighter"},
-//    {RogueIDX, "Rogue"},
-//    {WizardIDX, "Wizard"}
-// };
-
 class Player
 {
     public:
@@ -41,25 +27,6 @@ class Player
         * @param name - The name of the player.
         */
         Player (const std::string name);
-        
-        /**
-        * The destructor of Player.
-        */
-        ~Player ();
-        
-        /**
-        * The copy constructor of Player:
-        * 
-        * @param player - Reference of the player.
-        */
-        Player (const Player &player);
-        
-        /**
-        * The assignment operator of Player:
-        *
-        * @param player - Reference of the pplayer.
-        */
-        Player &operator= (const Player &player);
         
         /**
         * Increases the level of Player by one:
@@ -178,6 +145,13 @@ class Player
         *      The coins of Player.
         */
         int getCoins () const;
+
+        /*
+        * Here we are explicitly telling the compiler to use the default methods
+        */
+        Player(const Player&) = default;
+        ~Player() = default;
+        Player& operator=(const Player& other) = default;
 
         class PlayerInvalidName {};
 

@@ -27,19 +27,14 @@ using std::vector;
 int main ()
 {
     Rogue lidor = Rogue("Lidor");
-
     cout << lidor << endl;
     
     Pitfall lidorPitfall = Pitfall();
-
     lidorPitfall.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     Merchant lidorMerchant = Merchant();
-
     lidorMerchant.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     vector<Battle> lidorMonsters = {
@@ -47,17 +42,12 @@ int main ()
         Goblin(),
         Goblin()
     };
-
     Gang lidorGang = Gang(lidorMonsters);
-
     lidorGang.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     Merchant lidorMerchant2 = Merchant();
-
     lidorMerchant2.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     vector<Battle> lidorMonsters2 = {
@@ -81,29 +71,20 @@ int main ()
         Goblin(),
         Goblin()
     };
-
     Gang lidorGang2 = Gang(lidorMonsters2);
-
     lidorGang2.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     Merchant lidorMerchant3 = Merchant();
-
     lidorMerchant3.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     Merchant lidorMerchant4 = Merchant();
-
     lidorMerchant4.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     Merchant lidorMerchant5 = Merchant();
-
     lidorMerchant5.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     vector<Battle> lidorMonsters3 = {
@@ -112,11 +93,8 @@ int main ()
         Goblin(),
         Vampire()
     };
-
     Gang lidorGang3 = Gang(lidorMonsters3);
-
     lidorGang3.applyEncounter(lidor);
-
     cout << lidor << endl;
 
     vector<Battle> lidorMonsters4 = {
@@ -127,11 +105,8 @@ int main ()
         Vampire(),
         Dragon()
     };
-
     Gang lidorGang4 = Gang(lidorMonsters4);
-
     lidorGang4.applyEncounter(lidor);
-
     cout << lidor << endl;
     
     return 0;

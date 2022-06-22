@@ -25,32 +25,6 @@ const int VAMPIRE_DAMAGE = 10;
 const int VAMPIRE_COINS = 2;
 const int VAMPIRE_PLAYER_LOST_FORCE = 1;
 
-// enum cardNameMapIdxs
-// {
-//    First,
-//    BarfightIDX,
-//    DragonIDX,
-//    FairyIDX,
-//    GoblinIDX,
-//    MerchantIDX,
-//    PitfallIDX,
-//    TreasureIDX,
-//    VampireIDX,
-//    Last
-// };
-
-// std::map <cardNameMapIdxs, std::string> cardNameMap =
-// {
-//    {BarfightIDX, "Barfight"},
-//    {DragonIDX, "Dragon"},
-//    {FairyIDX, "Fairy"},
-//    {GoblinIDX, "Goblin"},
-//    {MerchantIDX, "Merchant"},
-//    {PitfallIDX, "Pitfall"},
-//    {TreasureIDX, "Treasure"},
-//    {VampireIDX, "Vampire"}
-// };
-
 class Card {
 
     public:

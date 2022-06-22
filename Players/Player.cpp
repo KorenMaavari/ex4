@@ -14,36 +14,6 @@ Player::Player (const string name)
     m_coins (DFLT_COINS)
 {}
 
-Player::~Player ()
-{
-    
-}
-
-Player::Player (const Player &player)
-{
-    this->m_name = player.m_name;
-    this->m_level = player.m_level;
-    this->m_force = player.m_force;
-    this->m_maxHP = player.m_maxHP;
-    this->m_HP = player.m_HP;
-    this->m_coins = player.m_coins;
-}
-
-Player &Player::operator= (const Player &player)
-{
-    if (this == &player)
-    {
-        return *this;
-    }
-    this->m_name = m_name;
-    this->m_level = player.m_level;
-    this->m_force = player.m_force;
-    this->m_maxHP = player.m_maxHP;
-    this->m_HP = player.m_HP;
-    this->m_coins = player.m_coins;
-    return *this;
-}
-
 void Player::levelUp ()
 {
     if (this->m_level < MAX_LEVEL)

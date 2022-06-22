@@ -9,6 +9,8 @@
 #include <map>
 
 #include "Cards/Card.h"
+#include "Cards/Battle.h"
+#include "Cards/Gang.h"
 #include "Players/Player.h"
 #include "Players/Fighter.h"
 #include "Players/Rogue.h"
