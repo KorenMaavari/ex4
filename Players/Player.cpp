@@ -74,7 +74,7 @@ void Player::damage (int HPToSubtract)
     }
 }
 
-const bool Player::isKnockedOut ()
+const bool Player::isKnockedOut () const
 {
     if (this->m_HP <= 0)
     {
@@ -108,7 +108,7 @@ const bool Player::pay (int coinsToSubtract)
     return false;
 }
 
-const int Player::getAttackStrength ()
+const int Player::getAttackStrength () const
 {
     int attackStrength = this->m_force + this->m_level;
     return attackStrength;
@@ -143,7 +143,7 @@ const string Player::getName () const
     return this->m_name;
 }
 
-int Player::getCoins () const
+const int Player::getCoins () const
 {
     return this->m_coins;
 }

@@ -9,7 +9,7 @@ Fighter::Fighter (const string name)
 
 }
 
-const int Fighter::getAttackStrength ()
+const int Fighter::getAttackStrength () const
 {
     int attackStrength = (this->m_force * TWICE) + this->m_level;
     return attackStrength;

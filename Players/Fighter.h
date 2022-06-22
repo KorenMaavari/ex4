@@ -15,7 +15,7 @@ class Fighter : public Player
         * @return
         *      (force * 2) + level
         */
-        const int getAttackStrength () override;
+        const int getAttackStrength () const override;
 
         const std::string getJob () const override;
 

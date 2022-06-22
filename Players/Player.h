@@ -12,7 +12,6 @@ const int DFLT_FORCE  = 5;
 const int MAX_LEVEL = 10;
 const int TWICE  = 2;
 const int MAX_PLAYER_NAME_LENGTH = 15;
-
 const std::string FIGHTER_STR = "Fighter";
 const std::string ROGUE_STR = "Rogue";
 const std::string WIZARD_STR = "Wizard";
@@ -77,7 +76,7 @@ class Player
         * @return
         *      True if Player is dead, and False if Player is still alive.
         */
-        const bool isKnockedOut ();
+        const bool isKnockedOut () const;
         
         /**
         * Increases the field of coins:
@@ -103,7 +102,7 @@ class Player
         * @return
         *      force + level
         */
-        virtual const int getAttackStrength ();
+        virtual const int getAttackStrength () const;
 
         /**
         * Decreases the force of Player:
@@ -144,7 +143,7 @@ class Player
         * @return
         *      The coins of Player.
         */
-        int getCoins () const;
+        const int getCoins () const;
 
         /*
         * Here we are explicitly telling the compiler to use the default methods

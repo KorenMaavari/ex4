@@ -63,7 +63,7 @@ class Card {
 
         std::string m_cardName;
 
-        friend std::ostream& operator<<(std::ostream&, const Card&);
+        friend std::ostream& operator<<(std::ostream&, const Card& card);
 };
 
 #endif //EX2_Card_H
